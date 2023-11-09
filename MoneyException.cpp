@@ -8,6 +8,7 @@
 MoneyException::MoneyException(const MoneyError& kMoneyError):message_(""){
     if(kMoneyError == MoneyError::CENT_FORMAT) { message_ = "Cent格式错误，其最大值是99。（1角=10分）"; }
     if(kMoneyError == MoneyError::UNIT_OVERFLOW) { message_ = "该操作会使Unit溢出。"; }
+    if(kMoneyError == MoneyError::TIMES_OVERFLOW) { message = "乘法操作导致了溢出。"; }
 }
 
 const char *MoneyException::what() const noexcept {
